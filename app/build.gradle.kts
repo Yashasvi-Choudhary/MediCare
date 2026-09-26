@@ -32,6 +32,11 @@ android {
 }
 
 dependencies {
+
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+
     implementation(libs.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
