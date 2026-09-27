@@ -11,13 +11,12 @@
         android:id="@+id/tvGreeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="8dp"
         android:text="Good Morning 👋"
         android:textColor="#173B3B"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="2 / 3"
+                android:text="0 / 0"
                 android:textColor="#078B82"
                 android:textSize="26sp"
                 android:textStyle="bold" />
@@ -74,7 +73,7 @@
                 android:id="@+id/tvProgressPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Doses Taken • 67%"
+                android:text="Doses Taken • 0%"
                 android:textColor="#5C7777"
                 android:textSize="13sp" />
 
@@ -113,24 +112,26 @@
             android:padding="12dp">
 
             <LinearLayout
-                android:layout_width="246dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tvMedicine1Name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="💊  Paracetamol"
+                    android:text="No medicine added"
                     android:textColor="#173B3B"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvMedicine1Details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:text="500 mg • 9:00 AM"
+                    android:text=""
                     android:textColor="#718181"
                     android:textSize="13sp" />
 
@@ -138,7 +139,7 @@
 
             <Button
                 android:id="@+id/btnTake1"
-                android:layout_width="84dp"
+                android:layout_width="75dp"
                 android:layout_height="42dp"
                 android:text="Take"
                 android:textSize="12sp" />
@@ -166,24 +167,26 @@
             android:padding="12dp">
 
             <LinearLayout
-                android:layout_width="259dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tvMedicine2Name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="💊  Vitamin D"
+                    android:text=""
                     android:textColor="#173B3B"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvMedicine2Details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:text="1 Tablet • 8:00 PM"
+                    android:text=""
                     android:textColor="#718181"
                     android:textSize="13sp" />
 
@@ -191,7 +194,7 @@
 
             <Button
                 android:id="@+id/btnTake2"
-                android:layout_width="87dp"
+                android:layout_width="75dp"
                 android:layout_height="42dp"
                 android:text="Take"
                 android:textSize="12sp" />
@@ -205,59 +208,62 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
+        android:layout_marginBottom="10dp"
         android:text="+  Add Medicine"
         android:textSize="15sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardMedicine2" />
 
     <LinearLayout
-        android:id="@+id/bottomNav"
+        android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="23dp"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddMedicine"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/navHome"
+        <Button
+            android:id="@+id/btnHome"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="⌂\nHome"
-            android:textColor="#078B82"
-            android:textSize="13sp" />
+            android:backgroundTint="@android:color/transparent"
+            android:text="Home"
+            android:textSize="11sp" />
 
-        <TextView
-            android:id="@+id/navCalendar"
+        <Button
+            android:id="@+id/btnCalendar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="▣\nCalendar"
-            android:textColor="#718181"
-            android:textSize="13sp" />
+            android:backgroundTint="@android:color/transparent"
+            android:text="Calendar"
+            android:textSize="11sp" />
 
-        <TextView
-            android:id="@+id/navProfile"
+        <Button
+            android:id="@+id/btnMedicines"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="♙\nProfile"
-            android:textColor="#718181"
-            android:textSize="13sp" />
+            android:backgroundTint="@android:color/transparent"
+            android:text="Medicines"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Profile"
+            android:textSize="11sp" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

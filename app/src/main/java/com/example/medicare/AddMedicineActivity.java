@@ -9,6 +9,8 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import com.example.medicare.database.AppDatabase;
+import com.example.medicare.database.Medicine;
 
 
 public class AddMedicineActivity extends AppCompatActivity {
@@ -34,10 +36,12 @@ public class AddMedicineActivity extends AppCompatActivity {
         btnSaveMedicine = findViewById(R.id.btnSaveMedicine);
 
         db = Room.databaseBuilder(
-                getApplicationContext(),
-                AppDatabase.class,
-                "medicare_database"
-        ).build();
+                        getApplicationContext(),
+                        AppDatabase.class,
+                        "medicare_database"
+                )
+                .addMigrations(AppDatabase.MIGRATION_1_2)
+                .build();
 
         btnSaveMedicine.setOnClickListener(v -> saveMedicine());
     }

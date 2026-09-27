@@ -1,4 +1,4 @@
-package com.example.medicare;
+package com.example.medicare.database;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

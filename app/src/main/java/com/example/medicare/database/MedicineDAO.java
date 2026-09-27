@@ -1,4 +1,4 @@
-package com.example.medicare;
+package com.example.medicare.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
