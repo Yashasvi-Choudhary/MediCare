@@ -4,265 +4,298 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5FAFA"
-    android:padding="20dp">
+    android:background="#F5FAFA">
 
-    <TextView
-        android:id="@+id/tvGreeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Good Morning 👋"
-        android:textColor="#173B3B"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Stay on track with your medicines"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvGreeting" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardProgress"
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="20dp"
-        app:cardBackgroundColor="#DDF5F2"
-        app:cardCornerRadius="18dp"
-        app:cardElevation="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvGreeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Good Morning"
+                        android:textColor="#173B3B"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="12dp"/>
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Monday, 28 September"
+                        android:textColor="#718181"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btnNotifications"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Notifications"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_notifications" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardProgress"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#DDF5F2"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today's Progress"
+                        android:textColor="#173B3B"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="0 / 0"
+                        android:textColor="#078B82"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProgressPercent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Doses Taken • 0%"
+                        android:textColor="#5C7777"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
+                android:id="@+id/tvMedicinesTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Today's Progress"
+                android:layout_marginTop="22dp"
+                android:text="Today's Medicines"
                 android:textColor="#173B3B"
-                android:textSize="17sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvProgress"
+                android:id="@+id/tvMedicineDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="0 / 0"
-                android:textColor="#078B82"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvProgressPercent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Doses Taken • 0%"
-                android:textColor="#5C7777"
+                android:text="Scheduled for today"
+                android:textColor="#718181"
                 android:textSize="13sp" />
 
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/tvMedicinesTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="Today's Medicines"
-        android:textColor="#173B3B"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardProgress" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardMedicine1"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMedicinesTitle">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="12dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTodayMedicines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:nestedScrollingEnabled="false" />
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:id="@+id/emptyMedicineState"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="No medicines"
+                    android:src="@drawable/ic_medicine" />
 
                 <TextView
-                    android:id="@+id/tvMedicine1Name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No medicine added"
+                    android:layout_marginTop="10dp"
+                    android:text="No medicines scheduled"
                     android:textColor="#173B3B"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvMedicine1Details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text=""
+                    android:layout_marginTop="4dp"
+                    android:text="You're all set for today!"
                     android:textColor="#718181"
                     android:textSize="13sp" />
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btnTake1"
-                android:layout_width="75dp"
-                android:layout_height="42dp"
-                android:text="Take"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardMedicine2"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="8dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardMedicine1">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="12dp">
-
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/tvViewAllMedicines"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvMedicine2Name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textColor="#173B3B"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvMedicine2Details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text=""
-                    android:textColor="#718181"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:text="View all medicines →"
+                android:textColor="#078B82"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btnTake2"
-                android:layout_width="75dp"
-                android:layout_height="42dp"
-                android:text="Take"
-                android:textSize="12sp" />
+                android:id="@+id/btnAddMedicine"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="10dp"
+                android:text="+  Add Medicine"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/btnAddMedicine"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="10dp"
-        android:text="+  Add Medicine"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardMedicine2" />
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="64dp"
         android:background="#FFFFFF"
-        android:elevation="4dp"
+        android:elevation="6dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/btnHome"
+        <LinearLayout
+            android:id="@+id/navHome"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/transparent"
-            android:text="Home"
-            android:textSize="11sp" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnCalendar"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Home"
+                android:src="@drawable/ic_home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="#078B82"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navMedicines"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/transparent"
-            android:text="Calendar"
-            android:textSize="11sp" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnMedicines"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="My Medicines"
+                android:src="@drawable/ic_medicine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medicines"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navNotifications"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/transparent"
-            android:text="Medicines"
-            android:textSize="11sp" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnProfile"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Alerts"
+                android:src="@drawable/ic_notifications" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alerts"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navHistory"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:backgroundTint="@android:color/transparent"
-            android:text="Profile"
-            android:textSize="11sp" />
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="History"
+                android:src="@drawable/ic_history" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="History"
+                android:textSize="11sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
