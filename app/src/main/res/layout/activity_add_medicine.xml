@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:text="Add Medicine"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginBottom="15dp" />
 
     <EditText
         android:id="@+id/etMedicineName"
@@ -19,11 +20,11 @@
         android:layout_height="wrap_content"
         android:hint="Medicine Name" />
 
-    <EditText
-        android:id="@+id/etDosage"
+    <Spinner
+        android:id="@+id/spDosage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Dosage (e.g. 500 mg)" />
+        android:layout_marginTop="8dp" />
 
     <EditText
         android:id="@+id/etQuantity"
@@ -36,25 +37,31 @@
         android:id="@+id/etTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Time (e.g. 9:00 AM)" />
+        android:hint="Select Time"
+        android:focusable="false"
+        android:clickable="true" />
 
-    <EditText
-        android:id="@+id/etFrequency"
+    <Spinner
+        android:id="@+id/spFrequency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Frequency (e.g. Once Daily)" />
+        android:layout_marginTop="8dp" />
 
     <EditText
         android:id="@+id/etStartDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Start Date" />
+        android:hint="Select Start Date"
+        android:focusable="false"
+        android:clickable="true" />
 
     <EditText
         android:id="@+id/etEndDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="End Date" />
+        android:hint="Select End Date"
+        android:focusable="false"
+        android:clickable="true" />
 
     <Button
         android:id="@+id/btnSaveMedicine"

@@ -31,10 +31,6 @@ public class RegisterActivity extends AppCompatActivity {
         tvLogin = findViewById(R.id.tvLogin);
 
 
-
-
-
-
         btnRegister.setOnClickListener(v -> {
 
             String userName = etFullname.getText().toString().trim();
