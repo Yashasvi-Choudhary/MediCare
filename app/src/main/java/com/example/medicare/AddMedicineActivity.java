@@ -21,7 +21,7 @@ import java.util.Calendar;
 public class AddMedicineActivity extends AppCompatActivity {
 
     EditText etMedicineName, etQuantity, etTime, etStartDate, etEndDate;
-    Spinner spDosage, spFrequency;
+    Spinner spDosage, spQuantityUnit, spFrequency;
     Button btnSaveMedicine;
 
     AppDatabase db;
@@ -39,6 +39,7 @@ public class AddMedicineActivity extends AppCompatActivity {
         etEndDate = findViewById(R.id.etEndDate);
 
         spDosage = findViewById(R.id.spDosage);
+        spQuantityUnit = findViewById(R.id.spQuantityUnit);
         spFrequency = findViewById(R.id.spFrequency);
 
         btnSaveMedicine = findViewById(R.id.btnSaveMedicine);
@@ -75,6 +76,13 @@ public class AddMedicineActivity extends AppCompatActivity {
                 "10 ml"
         };
 
+        String[] quantityUnits = {
+                "Select Unit",
+                "Tablet",
+                "Capsule",
+                "ml"
+        };
+
         String[] frequencies = {
                 "Select Frequency",
                 "Once Daily",
@@ -88,6 +96,12 @@ public class AddMedicineActivity extends AppCompatActivity {
                 dosages
         );
 
+        ArrayAdapter<String> quantityUnitAdapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_dropdown_item,
+                quantityUnits
+        );
+
         ArrayAdapter<String> frequencyAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_spinner_dropdown_item,
@@ -95,6 +109,7 @@ public class AddMedicineActivity extends AppCompatActivity {
         );
 
         spDosage.setAdapter(dosageAdapter);
+        spQuantityUnit.setAdapter(quantityUnitAdapter);
         spFrequency.setAdapter(frequencyAdapter);
     }
 
@@ -199,6 +214,7 @@ public class AddMedicineActivity extends AppCompatActivity {
         String endDate = etEndDate.getText().toString().trim();
 
         String dosage = spDosage.getSelectedItem().toString();
+        String quantityUnit = spQuantityUnit.getSelectedItem().toString();
         String frequency = spFrequency.getSelectedItem().toString();
 
         if (name.isEmpty()) {
@@ -217,6 +233,15 @@ public class AddMedicineActivity extends AppCompatActivity {
 
         if (quantityText.isEmpty()) {
             etQuantity.setError("Enter quantity");
+            return;
+        }
+
+        if (spQuantityUnit.getSelectedItemPosition() == 0) {
+            Toast.makeText(
+                    this,
+                    "Please select quantity unit",
+                    Toast.LENGTH_SHORT
+            ).show();
             return;
         }
 
@@ -263,6 +288,7 @@ public class AddMedicineActivity extends AppCompatActivity {
         medicine.name = name;
         medicine.dosage = dosage;
         medicine.quantity = quantity;
+        medicine.quantityUnit = quantityUnit;
         medicine.time = time;
         medicine.frequency = frequency;
         medicine.startDate = startDate;
